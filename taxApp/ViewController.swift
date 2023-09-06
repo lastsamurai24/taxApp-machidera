@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTextField.placeholder = "数字を入れてください"
         tableTaxview.delegate = self
         tableTaxview.dataSource = self
         updateLabel()
