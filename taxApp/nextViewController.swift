@@ -9,23 +9,28 @@ import UIKit
 
 class nextViewController: UIViewController {
     
+    
     @IBOutlet weak var resultLabel: UILabel!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         let resultArray = UserDefaults.standard.object(forKey: "item") as! [Double]
+        UserDefaults.standard.set([], forKey: "item")
 
         let sum = resultArray.reduce(0) { (num1:Double, num2:Double) -> Double in
             return num1 + num2
+            
         }
 
         resultLabel.text = String(format: "%.0f", sum)
 
     }
+    
+    }
 
-}
 
     /*
     // MARK: - Navigation

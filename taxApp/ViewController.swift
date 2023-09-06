@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var addtax:Decimal = 0
     var taxArray: [Decimal] = []
+    
     @IBOutlet weak var showLabel: UILabel!
     @IBOutlet weak var addTextField: UITextField!
     @IBOutlet weak var taxRateSegment: UISegmentedControl!
@@ -49,12 +50,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         taxArray.append(contentsOf: [addtax])
         
         UserDefaults.standard.set(taxArray, forKey: "item")
-        
+      
         addTextField.text = ""
         updateLabel()
         self.tableTaxview.reloadData()
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableTaxview.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
@@ -63,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-   
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             taxArray.remove(at: indexPath.row)
@@ -75,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taxArray.count
         
-        
+            
+        }
     }
-}
+
